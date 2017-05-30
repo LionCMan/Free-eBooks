@@ -5,9 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -21,17 +25,15 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        protected ImageView thubmnail;
+        protected ImageView thumbnail;
         protected TextView title;
-        protected TextView subtitle;
         protected TextView author;
         protected RatingBar ratingBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            thubmnail = (ImageView) itemView.findViewById(R.id.thumbnail);
+            thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
             title = (TextView) itemView.findViewById(R.id.title_text);
-            subtitle = (TextView) itemView.findViewById(R.id.subtitle_text);
             author = (TextView) itemView.findViewById(R.id.authors_text);
             ratingBar = (RatingBar) itemView.findViewById(R.id.rating);
         }
@@ -53,9 +55,8 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     @Override
     public void onBindViewHolder(ItemRecyclerAdapter.ViewHolder holder, int position) {
         final BookInformation currentBook = mInfo.get(position);
-        holder.thubmnail.setImageResource(currentBook.getThumbnailId());
+        Picasso.with(mContext).load(currentBook.getThumbnailLink()).into(holder.thumbnail);
         holder.title.setText(currentBook.getTitle());
-        holder.subtitle.setText(currentBook.getSubtitle());
         holder.author.setText(currentBook.getAuthor());
         holder.ratingBar.setRating((float) currentBook.getRating());
     }

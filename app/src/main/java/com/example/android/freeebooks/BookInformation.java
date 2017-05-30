@@ -1,39 +1,35 @@
 package com.example.android.freeebooks;
 
+import java.net.URL;
 import java.util.ArrayList;
 
-
 /**
- * Created by Cian Nolan on 30/05/2017.
+ * List item inputs created by Cian Nolan on 30/05/2017.
  */
 
 public class BookInformation {
 
-    private int mThumbnailId;
+    private String mThumbnailLink;
     private String mTitle;
-    private String mSubtitle;
     private ArrayList<String> mAuthor;
     private double mRating;
+    private String mReaderUrl;
 
-    public BookInformation(int thumbnailId, String title, String subtitle, ArrayList<String> author,
-                           double rating) {
-        mThumbnailId = thumbnailId;
+    public BookInformation(String thumbnail, String title, ArrayList<String> author, double rating,
+                           String reader) {
+        mThumbnailLink = thumbnail;
         mTitle = title;
-        mSubtitle = subtitle;
         mAuthor = author;
         mRating = rating;
+        mReaderUrl = reader;
     }
 
-    public int getThumbnailId() {
-        return mThumbnailId;
+    public String getThumbnailLink() {
+        return mThumbnailLink;
     }
 
     public String getTitle() {
         return mTitle;
-    }
-
-    public String getSubtitle() {
-        return mSubtitle;
     }
 
     public String getAuthor() {
@@ -44,6 +40,9 @@ public class BookInformation {
         return mRating;
     }
 
+    public String getReader() {
+        return mReaderUrl;
+    }
 
     private String checkAuthors() {
         String authors = mAuthor.get(0);
