@@ -46,8 +46,8 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     public ItemRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View listItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.booklist_item,
                 parent, false);
-        ViewHolder vh = new ViewHolder(listItem);
-        return vh;
+        ViewHolder vHolder = new ViewHolder(listItem);
+        return vHolder;
     }
 
     @Override
