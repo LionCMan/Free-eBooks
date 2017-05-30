@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Free eBooks</string>
     <string name="hint">Search</string>
+    <string name="empty_view">Search for book titles, authors, or topics and we\'ll handle the rest!</string>
 </resources>

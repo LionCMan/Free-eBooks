@@ -20,7 +20,7 @@
             android:padding="16dp"/>
 
         <ImageView
-            android:id="@+id/search"
+            android:id="@+id/search_button"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignBottom="@id/search_text"
