@@ -5,32 +5,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.net.URL;
 import java.util.List;
 
 /**
  * List item Recycler Adapter created by Cian Nolan on 30/05/2017.
  */
 
-public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ViewHolder> {
+class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ViewHolder> {
 
-    List<BookInformation> mInfo;
-    SearchActivity mContext;
+    private List<BookInformation> mInfo;
+    private SearchActivity mContext;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
-        protected ImageView thumbnail;
-        protected TextView title;
-        protected TextView author;
-        protected RatingBar ratingBar;
+        ImageView thumbnail;
+        TextView title;
+        TextView author;
+        RatingBar ratingBar;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
             title = (TextView) itemView.findViewById(R.id.title_text);
@@ -39,7 +37,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         }
     }
 
-    public ItemRecyclerAdapter(SearchActivity context, List<BookInformation> info) {
+    ItemRecyclerAdapter(SearchActivity context, List<BookInformation> info) {
         this.mInfo = info;
         this.mContext = context;
     }
@@ -48,8 +46,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     public ItemRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View listItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.booklist_item,
                 parent, false);
-        ViewHolder vHolder = new ViewHolder(listItem);
-        return vHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override

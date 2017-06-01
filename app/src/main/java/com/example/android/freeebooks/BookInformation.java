@@ -1,13 +1,12 @@
 package com.example.android.freeebooks;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 /**
  * List item inputs created by Cian Nolan on 30/05/2017.
  */
 
-public class BookInformation {
+class BookInformation {
 
     private String mThumbnailLink;
     private String mTitle;
@@ -15,8 +14,8 @@ public class BookInformation {
     private double mRating;
     private String mReaderUrl;
 
-    public BookInformation(String thumbnail, String title, ArrayList<String> author, double rating,
-                           String reader) {
+    BookInformation(String thumbnail, String title, ArrayList<String> author, double rating,
+                    String reader) {
         mThumbnailLink = thumbnail;
         mTitle = title;
         mAuthor = author;

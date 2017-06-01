@@ -17,37 +17,24 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-/**
- * Created by Cian on 30/05/2017.
- */
-
-public class QueryUtils {
+class QueryUtils {
 
     public QueryUtils() {
     }
 
-    /**
-     * Tag for the log messages
-     */
-    public static final String LOG_TAG = QueryUtils.class.getSimpleName();
+    private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    public static ArrayList<BookInformation> fetchBookData(String requestUrl) {
+    static ArrayList<BookInformation> fetchBookData(String requestUrl) {
         URL url = createUrl(requestUrl);
-
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error closing input stream", e);
         }
-
-        ArrayList<BookInformation> booklist = extractFeatureFromJson(jsonResponse);
-        return booklist;
+        return extractFeatureFromJson(jsonResponse);
     }
 
-    /**
-     * Returns new URL object from the given string URL.
-     */
     private static URL createUrl(String stringUrl) {
         URL url = null;
         try {
@@ -84,7 +71,7 @@ public class QueryUtils {
 
                     String title = volumeInfo.getString("title");
 
-                    JSONArray authorsArray = null;
+                    JSONArray authorsArray;
                     ArrayList<String> authors = new ArrayList<>();
                     if (volumeInfo.has("authors")) {
                         authorsArray = volumeInfo.getJSONArray("authors");
@@ -100,6 +87,7 @@ public class QueryUtils {
                         rating = volumeInfo.getDouble("averageRating");
                     } else {
                         rating = 0;
+
                     }
 
                     JSONObject accessInfo = currentBook.getJSONObject("accessInfo");
@@ -130,8 +118,8 @@ public class QueryUtils {
         InputStream inputStream = null;
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+            urlConnection.setReadTimeout(10000);
+            urlConnection.setConnectTimeout(15000);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
