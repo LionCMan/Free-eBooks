@@ -12,7 +12,6 @@ class BookInformation {
     private String mTitle;
     private ArrayList<String> mAuthor;
     private double mRating;
-    private String mReaderUrl;
 
     BookInformation(String thumbnail, String title, ArrayList<String> author, double rating,
                     String reader) {
@@ -20,7 +19,6 @@ class BookInformation {
         mTitle = title;
         mAuthor = author;
         mRating = rating;
-        mReaderUrl = reader;
     }
 
     public String getThumbnailLink() {
@@ -37,10 +35,6 @@ class BookInformation {
 
     public double getRating() {
         return mRating;
-    }
-
-    public String getReader() {
-        return mReaderUrl;
     }
 
     private String checkAuthors() {

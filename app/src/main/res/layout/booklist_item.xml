@@ -1,68 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="128dp"
     android:baselineAligned="false"
-    android:id="@+id/list_layout_item">
+    android:id="@+id/list_layout_item"
+    android:background="@android:drawable/dialog_holo_light_frame">
 
     <ImageView
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerInside" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_toRightOf="@id/thumbnail"
+        android:layout_toEndOf="@id/thumbnail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:paddingTop="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+    <RatingBar
+        android:id="@+id/rating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_margin="8dp" />
 
-        <TextView
-            android:id="@+id/reader_link"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:visibility="invisible" />
+    <TextView
+        android:id="@+id/authors_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/rating"
+        android:layout_toStartOf="@id/rating"
+        android:layout_below="@id/title_text"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/thumbnail"
+        android:layout_toEndOf="@id/thumbnail"
+        android:ellipsize="end"
+        android:gravity="bottom"
+        android:maxLines="3"
+        android:padding="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="12sp"
+        android:textStyle="italic" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/authors_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_gravity="bottom"
-                android:paddingBottom="8dp"
-                android:textSize="14sp"
-                android:textStyle="italic"/>
-
-            <RatingBar
-                android:id="@+id/rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:stepSize="0.5" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
