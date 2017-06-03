@@ -62,6 +62,7 @@ public class SearchActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
                 final boolean isConnected = activeNetwork != null &&
                         activeNetwork.isConnectedOrConnecting();
                 if (isConnected) {
