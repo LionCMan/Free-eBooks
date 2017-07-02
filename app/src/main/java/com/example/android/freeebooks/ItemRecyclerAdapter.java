@@ -52,7 +52,11 @@ class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ViewH
     @Override
     public void onBindViewHolder(ItemRecyclerAdapter.ViewHolder holder, int position) {
         final BookInformation currentBook = mInfo.get(position);
-        Picasso.with(mContext).load(currentBook.getThumbnailLink()).into(holder.thumbnail);
+        Picasso.with(mContext)
+                .load(currentBook.getThumbnailLink())
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(holder.thumbnail);
         holder.title.setText(currentBook.getTitle());
         holder.author.setText(currentBook.getAuthor());
         holder.ratingBar.setRating((float) currentBook.getRating());

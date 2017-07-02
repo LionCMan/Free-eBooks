@@ -127,6 +127,10 @@ public class SearchActivity extends AppCompatActivity
         if (books != null && !books.isEmpty()) {
             mRecyclerAdapter = new ItemRecyclerAdapter(SearchActivity.this, books);
             mRecyclerView.setAdapter(mRecyclerAdapter);
+        } else {
+            TextView state = (TextView) findViewById(R.id.state_text);
+            state.setVisibility(View.VISIBLE);
+            state.setText(R.string.no_internet);
         }
     }
 
