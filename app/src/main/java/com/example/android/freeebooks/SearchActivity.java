@@ -130,7 +130,7 @@ public class SearchActivity extends AppCompatActivity
         } else {
             TextView state = (TextView) findViewById(R.id.state_text);
             state.setVisibility(View.VISIBLE);
-            state.setText(R.string.no_internet);
+            state.setText(R.string.empty_view);
         }
     }
 

@@ -3,5 +3,4 @@
     <string name="hint">Search</string>
     <string name="empty_view">Search for book titles, authors, or topics and we\'ll handle the rest!</string>
     <string name="toast">Search for an eBook!</string>
-    <string name="no_internet">No Internet Connection Available</string>
 </resources>
